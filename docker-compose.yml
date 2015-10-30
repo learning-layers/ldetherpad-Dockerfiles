@@ -1,0 +1,17 @@
+ldetherpad:
+  container_name: ldetherpad
+  image: aur0r/etherpad2:v0.0.5_docker_compose
+  env_file:
+     - ldetherpad.env
+  ports:
+     - 9001:9001
+  links:
+     - mysql:mysql
+
+mysql:
+  container_name: mysql
+  image: tutum/mysql:5.5
+  env_file:
+     - mysql.env
+  ports:
+     - 3306:3306
